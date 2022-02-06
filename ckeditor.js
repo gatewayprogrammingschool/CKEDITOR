@@ -28921,7 +28921,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'maxSuggestions',
     'store',
     'spreadsheetcellreferences',
-    'spreadsheet,mentions,widget',
+    'mentions,widget',
     'cellReferenceManager',
     'init',
     'setupUndoFilter',
@@ -28978,13 +28978,12 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'getCell',
     'innerText',
     'spreadsheet_cellReferencesPattern',
-    'data-cke-spreadsheet-widget',
     'instances',
     'isUndoRedoSupported',
     'ctrlKey',
     'metaKey',
     'altKey',
-    'spreadsheet,link,anchor,unlink,placeholder,image,image2,easyimageUpload,table,tableProperties,form,checkbox,radio,textfield,textarea,select,button,imagebutton,hiddenfield,numberedlist,bulletedlist,indent,outdent,flash,horizontalrule,smiley,pagebreak,iframe,creatediv,blockquote,language,specialchar,copyFormatting,applyFormatting,bidiltr,bidirtl',
+    'link,anchor,unlink,placeholder,image,image2,easyimageUpload,table,tableProperties,form,checkbox,radio,textfield,textarea,select,button,imagebutton,hiddenfield,numberedlist,bulletedlist,indent,outdent,flash,horizontalrule,smiley,pagebreak,iframe,creatediv,blockquote,language,specialchar,copyFormatting,applyFormatting,bidiltr,bidirtl',
     'libs/handsontable/dist/handsontable.full.css',
     'skins/default.css',
     'test',
@@ -29164,15 +29163,11 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'deselectCell',
     'updateRevisionCode',
     'updateElementReference',
-    'cke-spreadsheet-id',
     'getUniqueId',
-    'data-cke-spreadsheet-id',
-    'data-cke-spreadsheet-rev',
     'undoRedo',
     'done',
     'override',
     'createSnapshot',
-    'span[data-cke-spreadsheet-id]',
     'restoreSpreadsheetUsingLatestBookmark',
     'promise',
     'upcastWidgetIntoSpreadsheet',
@@ -29251,7 +29246,6 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'name',
     'plugins',
     'add',
-    'spreadsheet,spreadsheetrenderer',
     'registerActions',
     'beforeCommandExec',
     'proxyCommand',
@@ -29259,8 +29253,6 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'refreshToolbar',
     'instanceReady',
     'attachListener',
-    'spreadsheet',
-    'spreadsheetrenderer',
     'registerAction',
     'bold',
     'createBasicstylesAction',
@@ -29363,7 +29355,6 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'substring',
     'data-',
     'refreshDimensions',
-    'data-cke-spreadsheet-',
     'push',
     'addHookOnce',
     'afterDestroy',
@@ -29423,14 +29414,12 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     'left',
     'reduce',
     'keys',
-    'spreadsheetformatting',
-    'spreadsheet,spreadsheetrenderer,dialog,colordialog',
+    'dialog,colordialog',
     'document',
     'appendStyleSheet',
     'getUrl',
     'registered',
     'path',
-    'dialogs/spreadsheetformatting.css',
     'lang',
     'registerUI',
     'initializeParser',
@@ -32687,7 +32676,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
             'toolbar,widget,balloontoolbar,spreadsheetstyles,spreadsheetserializer,spreadsheetcelltypes,spreadsheetformatting,spreadsheetcellreferences',
           lang: 'en',
           icons:
-            'spreadsheet,spreadsheetconvert,spreadsheetselect,spreadsheetcelltypes,spreadsheetformatting',
+            'spreadsheetselect,spreadsheetcelltypes,spreadsheetformatting',
           hidpi: !0x0,
           unsupportedCommands: _0x193f('0x21c'),
           balloonToolbar: [],
@@ -41446,7 +41435,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
   CKEDITOR.config.plugins =
     'dialogui,dialog,about,basicstyles,notification,button,toolbar,clipboard,enterkey,entities,floatingspace,indent,indentlist,fakeobjects,link,list,undo,stylesheetparser,youtube,' +
     'markdown,maximize,nbsp,pagebreak,textindent,pastetext,pastecode,xml,ajax,pastetools,pastefromgdocs,pastefromword,ccmssourcedialog,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,' +
-    'SPImage,showborders,widgetselection,widget,balloonpanel,balloontoolbar,colordialog,textwatcher,autocomplete,textmatch,mentions,spreadsheet,syntaxhighlight,stylesheetparser-fixed,table,' +
+    'SPImage,showborders,widgetselection,widget,balloonpanel,balloontoolbar,colordialog,textwatcher,autocomplete,textmatch,mentions,syntaxhighlight,stylesheetparser-fixed,table,' +
     'ckeditortablecellsselection,contents,panel,floatpanel,menu,contextmenu,' +
     'tabletools,tableresize,tablesorter,tabletoolstoolbar,widgettemplatemenu,uicolor,filetools,notificationaggregator,uploadwidget,uploadimage,uploadfile,widgetcontextmenu'
   CKEDITOR.config.skin = 'moono-lisa';
@@ -41464,12 +41453,12 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     }
     if (CKEDITOR.env.hidpi)
       setIcons(
-        'about,0,,bold,24,,italic,48,,strike,72,,subscript,96,,superscript,120,,underline,144,,copy-rtl,168,,copy,192,,cut-rtl,216,,cut,240,,paste-rtl,264,,paste,288,,indent-rtl,312,,indent,336,,outdent-rtl,360,,outdent,384,,anchor-rtl,408,,anchor,432,,link,456,,unlink,480,,bulletedlist-rtl,504,,bulletedlist,528,,numberedlist-rtl,552,,numberedlist,576,,redo-rtl,600,,redo,624,,undo-rtl,648,,undo,672,,markdown,696,,maximize,720,,pagebreak-rtl,744,,pagebreak,768,,textindent,792,,pastetext-rtl,816,,pastetext,840,,pastecode-rtl,1728,auto,pastecode,1776,auto,pastefromword-rtl,912,,pastefromword,936,,ccmssourcedialog-rtl,960,,ccmssourcedialog,984,,savemarkdown,1008,,selectall,1032,,SPimage,2112,auto,SPImage,1080,,spreadsheet,1128,,spreadsheetcelltypes,1152,,spreadsheetconvert,1176,,spreadsheetformatting,1200,,spreadsheetselect,1224,,syntaxhighlight,2496,auto,table,1272,,contents,2592,auto,tablecelldelete,2640,auto,tablecellinsertafter,2688,auto,tablecellinsertbefore,2736,auto,tablecellmergedown,2784,auto,tablecellmergeright,2832,auto,tablecellproperties,2880,auto,tablecellsmerge,2928,auto,tablecellsplithorizontal,2976,auto,tablecellsplitvertical,3024,auto,tablecolumndelete,3072,auto,tablecolumninsertafter,3120,auto,tablecolumninsertbefore,3168,auto,tabledelete,3216,auto,tableinsert,3264,auto,tableproperties,3312,auto,tablerowdelete,3360,auto,tablerowinsertafter,3408,auto,tablerowinsertbefore,3456,auto,widgettemplatemenu,3504,auto,uicolor,1776,,copywidget,1800,,editwidget,1824,,removewidget,1848,,widget,1872,',
+        'about,0,,bold,24,,italic,48,,strike,72,,subscript,96,,superscript,120,,underline,144,,copy-rtl,168,,copy,192,,cut-rtl,216,,cut,240,,paste-rtl,264,,paste,288,,indent-rtl,312,,indent,336,,outdent-rtl,360,,outdent,384,,anchor-rtl,408,,anchor,432,,link,456,,unlink,480,,bulletedlist-rtl,504,,bulletedlist,528,,numberedlist-rtl,552,,numberedlist,576,,redo-rtl,600,,redo,624,,undo-rtl,648,,undo,672,,markdown,696,,maximize,720,,pagebreak-rtl,744,,pagebreak,768,,textindent,792,,pastetext-rtl,816,,pastetext,840,,pastecode-rtl,1728,auto,pastecode,1776,auto,pastefromword-rtl,912,,pastefromword,936,,ccmssourcedialog-rtl,960,,ccmssourcedialog,984,,savemarkdown,1008,,selectall,1032,,SPimage,2112,auto,SPImage,1080,,spreadsheetcelltypes,1152,,spreadsheetconvert,1176,,spreadsheetformatting,1200,,spreadsheetselect,1224,,syntaxhighlight,2496,auto,table,1272,,contents,2592,auto,tablecelldelete,2640,auto,tablecellinsertafter,2688,auto,tablecellinsertbefore,2736,auto,tablecellmergedown,2784,auto,tablecellmergeright,2832,auto,tablecellproperties,2880,auto,tablecellsmerge,2928,auto,tablecellsplithorizontal,2976,auto,tablecellsplitvertical,3024,auto,tablecolumndelete,3072,auto,tablecolumninsertafter,3120,auto,tablecolumninsertbefore,3168,auto,tabledelete,3216,auto,tableinsert,3264,auto,tableproperties,3312,auto,tablerowdelete,3360,auto,tablerowinsertafter,3408,auto,tablerowinsertbefore,3456,auto,widgettemplatemenu,3504,auto,uicolor,1776,,copywidget,1800,,editwidget,1824,,removewidget,1848,,widget,1872,',
         'icons_hidpi.png',
       )
     else
       setIcons(
-        'about,0,auto,bold,40,auto,italic,80,auto,strike,120,auto,subscript,160,auto,superscript,200,auto,underline,240,auto,copy-rtl,280,auto,copy,320,auto,cut-rtl,360,auto,cut,400,auto,paste-rtl,440,auto,paste,480,auto,indent-rtl,520,auto,indent,560,auto,outdent-rtl,600,auto,outdent,640,auto,anchor-rtl,680,auto,anchor,720,auto,link,760,auto,unlink,800,auto,bulletedlist-rtl,840,auto,bulletedlist,880,auto,numberedlist-rtl,920,auto,numberedlist,960,auto,redo-rtl,1000,auto,redo,1040,auto,undo-rtl,1080,auto,undo,1120,auto,markdown,1160,auto,maximize,1200,auto,pagebreak-rtl,1240,auto,pagebreak,1280,auto,textindent,1320,auto,pastetext-rtl,1360,auto,pastetext,1400,auto,pastecode-rtl,1440,auto,pastecode,1480,auto,pastefromword-rtl,1520,auto,pastefromword,1560,auto,ccmssourcedialog-rtl,1600,auto,ccmssourcedialog,1640,auto,savemarkdown,1680,auto,selectall,1720,auto,SPimage,1760,auto,spreadsheet,1840,auto,spreadsheetcelltypes,1880,auto,spreadsheetconvert,1920,auto,spreadsheetformatting,1960,auto,spreadsheetselect,2000,auto,syntaxhighlight,2040,auto,table,2080,auto,contents,2120,auto,tablecelldelete,2160,auto,tablecellinsertafter,2200,auto,tablecellinsertbefore,2240,auto,tablecellmergedown,2280,auto,tablecellmergeright,2320,auto,tablecellproperties,2360,auto,tablecellsmerge,2400,auto,tablecellsplithorizontal,2440,auto,tablecellsplitvertical,2480,auto,tablecolumndelete,2520,auto,tablecolumninsertafter,2560,auto,tablecolumninsertbefore,2600,auto,tabledelete,2640,auto,tableinsert,2680,auto,tableproperties,2720,auto,tablerowdelete,2760,auto,tablerowinsertafter,2800,auto,tablerowinsertbefore,2840,auto,widgettemplatemenu,2880,auto,uicolor,2920,auto,copywidget,2960,auto,editwidget,3000,auto,removewidget,3040,auto,widget,3080,auto',
+        'about,0,auto,bold,40,auto,italic,80,auto,strike,120,auto,subscript,160,auto,superscript,200,auto,underline,240,auto,copy-rtl,280,auto,copy,320,auto,cut-rtl,360,auto,cut,400,auto,paste-rtl,440,auto,paste,480,auto,indent-rtl,520,auto,indent,560,auto,outdent-rtl,600,auto,outdent,640,auto,anchor-rtl,680,auto,anchor,720,auto,link,760,auto,unlink,800,auto,bulletedlist-rtl,840,auto,bulletedlist,880,auto,numberedlist-rtl,920,auto,numberedlist,960,auto,redo-rtl,1000,auto,redo,1040,auto,undo-rtl,1080,auto,undo,1120,auto,markdown,1160,auto,maximize,1200,auto,pagebreak-rtl,1240,auto,pagebreak,1280,auto,textindent,1320,auto,pastetext-rtl,1360,auto,pastetext,1400,auto,pastecode-rtl,1440,auto,pastecode,1480,auto,pastefromword-rtl,1520,auto,pastefromword,1560,auto,ccmssourcedialog-rtl,1600,auto,ccmssourcedialog,1640,auto,savemarkdown,1680,auto,selectall,1720,auto,SPimage,1760,auto,1840,auto,spreadsheetcelltypes,1880,auto,spreadsheetconvert,1920,auto,spreadsheetformatting,1960,auto,spreadsheetselect,2000,auto,syntaxhighlight,2040,auto,table,2080,auto,contents,2120,auto,tablecelldelete,2160,auto,tablecellinsertafter,2200,auto,tablecellinsertbefore,2240,auto,tablecellmergedown,2280,auto,tablecellmergeright,2320,auto,tablecellproperties,2360,auto,tablecellsmerge,2400,auto,tablecellsplithorizontal,2440,auto,tablecellsplitvertical,2480,auto,tablecolumndelete,2520,auto,tablecolumninsertafter,2560,auto,tablecolumninsertbefore,2600,auto,tabledelete,2640,auto,tableinsert,2680,auto,tableproperties,2720,auto,tablerowdelete,2760,auto,tablerowinsertafter,2800,auto,tablerowinsertbefore,2840,auto,widgettemplatemenu,2880,auto,uicolor,2920,auto,copywidget,2960,auto,editwidget,3000,auto,removewidget,3040,auto,widget,3080,auto',
         'icons.png',
       )
   })()
