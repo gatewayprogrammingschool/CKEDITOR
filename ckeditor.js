@@ -25222,7 +25222,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
       U(this)
       V(this)
       W(this)
-      X(this)
+      //X(this)
       Y(this)
     }
     function h(a, b, c, d, e) {
@@ -25551,88 +25551,88 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
     function fa(a, b) {
       return CKEDITOR.tools.trim(b)
     }
-    function X(a) {
-      var b = a.editor,
-        c = CKEDITOR.plugins.lineutils
-      b.on('dragstart', function (c) {
-        var e = c.data.target
-        h.isDomDragHandler(e) &&
-          ((e = a.getByElement(e)),
-          c.data.dataTransfer.setData('cke/widget-id', e.id),
-          b.focus(),
-          e.focus())
-      })
-      b.on('drop', function (c) {
-        function e(a, b) {
-          return a && b
-            ? a.wrapper.equals(b.wrapper) || a.wrapper.contains(b.wrapper)
-            : !1
-        }
-        var f = c.data.dataTransfer,
-          g = f.getData('cke/widget-id'),
-          l = f.getTransferType(b),
-          f = b.createRange(),
-          k = (function (a) {
-            a = a.getBoundaryNodes().startNode
-            a.type !== CKEDITOR.NODE_ELEMENT && (a = a.getParent())
-            return b.widgets.getByElement(a)
-          })(c.data.dropRange)
-        if ('' !== g && l === CKEDITOR.DATA_TRANSFER_CROSS_EDITORS) c.cancel()
-        else if (l == CKEDITOR.DATA_TRANSFER_INTERNAL)
-          if ('' === g && 0 < b.widgets.selected.length)
-            c.data.dataTransfer.setData('text/html', F(b))
-          else if ((g = a.instances[g]))
-            e(g, k)
-              ? c.cancel()
-              : (f.setStartBefore(g.wrapper),
-                f.setEndAfter(g.wrapper),
-                (c.data.dragRange = f),
-                delete CKEDITOR.plugins.clipboard.dragStartContainerChildCount,
-                delete CKEDITOR.plugins.clipboard.dragEndContainerChildCount,
-                c.data.dataTransfer.setData('text/html', g.getClipboardHtml()),
-                b.widgets.destroy(g, !0))
-      })
-      b.on('contentDom', function () {
-        var d = b.editable()
-        CKEDITOR.tools.extend(
-          a,
-          {
-            finder: new c.finder(b, {
-              lookups: {
-                default: function (b) {
-                  if (
-                    !b.is(CKEDITOR.dtd.$listItem) &&
-                    b.is(CKEDITOR.dtd.$block) &&
-                    !h.isDomNestedEditable(b) &&
-                    !a._.draggedWidget.wrapper.contains(b)
-                  ) {
-                    var c = h.getNestedEditable(d, b)
-                    if (c) {
-                      b = a._.draggedWidget
-                      if (a.getByElement(c) == b) return
-                      c = CKEDITOR.filter.instances[c.data('cke-filter')]
-                      b = b.requiredContent
-                      if (c && b && !c.check(b)) return
-                    }
-                    return CKEDITOR.LINEUTILS_BEFORE | CKEDITOR.LINEUTILS_AFTER
-                  }
-                },
-              },
-            }),
-            locator: new c.locator(b),
-            liner: new c.liner(b, {
-              lineStyle: {
-                cursor: 'move !important',
-                'border-top-color': '#666',
-              },
-              tipLeftStyle: { 'border-left-color': '#666' },
-              tipRightStyle: { 'border-right-color': '#666' },
-            }),
-          },
-          !0,
-        )
-      })
-    }
+    // function X(a) {
+    //   var b = a.editor,
+    //     c = CKEDITOR.plugins.lineutils
+    //   b.on('dragstart', function (c) {
+    //     var e = c.data.target
+    //     h.isDomDragHandler(e) &&
+    //       ((e = a.getByElement(e)),
+    //       c.data.dataTransfer.setData('cke/widget-id', e.id),
+    //       b.focus(),
+    //       e.focus())
+    //   })
+    //   b.on('drop', function (c) {
+    //     function e(a, b) {
+    //       return a && b
+    //         ? a.wrapper.equals(b.wrapper) || a.wrapper.contains(b.wrapper)
+    //         : !1
+    //     }
+    //     var f = c.data.dataTransfer,
+    //       g = f.getData('cke/widget-id'),
+    //       l = f.getTransferType(b),
+    //       f = b.createRange(),
+    //       k = (function (a) {
+    //         a = a.getBoundaryNodes().startNode
+    //         a.type !== CKEDITOR.NODE_ELEMENT && (a = a.getParent())
+    //         return b.widgets.getByElement(a)
+    //       })(c.data.dropRange)
+    //     if ('' !== g && l === CKEDITOR.DATA_TRANSFER_CROSS_EDITORS) c.cancel()
+    //     else if (l == CKEDITOR.DATA_TRANSFER_INTERNAL)
+    //       if ('' === g && 0 < b.widgets.selected.length)
+    //         c.data.dataTransfer.setData('text/html', F(b))
+    //       else if ((g = a.instances[g]))
+    //         e(g, k)
+    //           ? c.cancel()
+    //           : (f.setStartBefore(g.wrapper),
+    //             f.setEndAfter(g.wrapper),
+    //             (c.data.dragRange = f),
+    //             delete CKEDITOR.plugins.clipboard.dragStartContainerChildCount,
+    //             delete CKEDITOR.plugins.clipboard.dragEndContainerChildCount,
+    //             c.data.dataTransfer.setData('text/html', g.getClipboardHtml()),
+    //             b.widgets.destroy(g, !0))
+    //   })
+    //   b.on('contentDom', function () {
+    //     var d = b.editable()
+    //     CKEDITOR.tools.extend(
+    //       a,
+    //       {
+    //         finder: new c.finder(b, {
+    //           lookups: {
+    //             default: function (b) {
+    //               if (
+    //                 !b.is(CKEDITOR.dtd.$listItem) &&
+    //                 b.is(CKEDITOR.dtd.$block) &&
+    //                 !h.isDomNestedEditable(b) &&
+    //                 !a._.draggedWidget.wrapper.contains(b)
+    //               ) {
+    //                 var c = h.getNestedEditable(d, b)
+    //                 if (c) {
+    //                   b = a._.draggedWidget
+    //                   if (a.getByElement(c) == b) return
+    //                   c = CKEDITOR.filter.instances[c.data('cke-filter')]
+    //                   b = b.requiredContent
+    //                   if (c && b && !c.check(b)) return
+    //                 }
+    //                 return CKEDITOR.LINEUTILS_BEFORE | CKEDITOR.LINEUTILS_AFTER
+    //               }
+    //             },
+    //           },
+    //         }),
+    //         locator: new c.locator(b),
+    //         liner: new c.liner(b, {
+    //           lineStyle: {
+    //             cursor: 'move !important',
+    //             'border-top-color': '#666',
+    //           },
+    //           tipLeftStyle: { 'border-left-color': '#666' },
+    //           tipRightStyle: { 'border-right-color': '#666' },
+    //         }),
+    //       },
+    //       !0,
+    //     )
+    //   })
+    // }
     function V(a) {
       var b = a.editor
       b.on('contentDom', function () {
@@ -26499,7 +26499,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
       })
     }
     CKEDITOR.plugins.add('widget', {
-      requires: 'lineutils,clipboard,widgetselection',
+      requires: 'clipboard,widgetselection',
       onLoad: function () {
         void 0 !== CKEDITOR.document.$.querySelectorAll &&
           (CKEDITOR.addCss(
@@ -41446,7 +41446,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
   CKEDITOR.config.plugins =
     'dialogui,dialog,about,basicstyles,notification,button,toolbar,clipboard,enterkey,entities,floatingspace,indent,indentlist,fakeobjects,link,list,undo,stylesheetparser,youtube,' +
     'markdown,maximize,nbsp,pagebreak,textindent,pastetext,pastecode,xml,ajax,pastetools,pastefromgdocs,pastefromword,ccmssourcedialog,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,' +
-    'SPImage,showborders,lineutils,widgetselection,widget,balloonpanel,balloontoolbar,colordialog,textwatcher,autocomplete,textmatch,mentions,spreadsheet,syntaxhighlight,stylesheetparser-fixed,table,' +
+    'SPImage,showborders,widgetselection,widget,balloonpanel,balloontoolbar,colordialog,textwatcher,autocomplete,textmatch,mentions,spreadsheet,syntaxhighlight,stylesheetparser-fixed,table,' +
     'ckeditortablecellsselection,contents,panel,floatpanel,menu,contextmenu,' +
     'tabletools,tableresize,tablesorter,tabletoolstoolbar,widgettemplatemenu,uicolor,filetools,notificationaggregator,uploadwidget,uploadimage,uploadfile,widgetcontextmenu'
   CKEDITOR.config.skin = 'moono-lisa';

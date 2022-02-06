@@ -81,8 +81,6 @@ var CKBUILDER_CONFIG = {
 		'selectall' : 1,
 		'selectallcontextmenu' : 1,
 		'showborders' : 1,
-		'simple-image-browser' : 1,
-		'simpleImageUpload' : 1,
 		'spreadsheet' : 1,
 		'stylesheetparser' : 1,
 		'stylesheetparser-fixed' : 1,
