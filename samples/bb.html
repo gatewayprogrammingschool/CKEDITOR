@@ -19,15 +19,15 @@
                     if (text !== " ") {
                         console.log(`received: ${text}`);
                         if (text !== "👍🏼") {
-                            CKEDITOR.instances.CK1.setData(text);
-                            CKEDITOR.instances.CK1.setData(text);
-                            console.log(CKEDITOR.instances.CK1.getData());
+                            CKEDITOR.instances.editor.setData(text);
+                            CKEDITOR.instances.editor.setData(text);
+                            console.log(CKEDITOR.instances.editor.getData());
                         } else {
-                            CKEDITOR.instances.CK1.setData("");
-                            CKEDITOR.instances.CK1.setData("");
+                            CKEDITOR.instances.editor.setData("");
+                            CKEDITOR.instances.editor.setData("");
                         }
                     } else {
-                        const text = CKEDITOR.instances.CK1.getData();
+                        const text = CKEDITOR.instances.editor.getData();
                         console.log(text);
                         window.parent.postMessage(text, "*");
                     }
@@ -105,7 +105,7 @@
             };
         };
         CKEDITOR.replace('editor'); 
-        CKEDITOR.instances.CK1.resize('100%', '350');
+        CKEDITOR.instances.editor.resize('100%', '350');
 
     </script>
 </body>
