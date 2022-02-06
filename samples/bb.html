@@ -5,9 +5,9 @@
     <title>BB</title>
     <base href="https://polite-water-0f0b93410.1.azurestaticapps.net/">
     <script src="/ckeditor.js"></script>
-    <script src="/samples/js/sample.js"></script>
-    <link rel="stylesheet" href="/samples/css/samples.css">
-    <link rel="stylesheet" href="/samples/toolbarconfigurator/lib/codemirror/neo.css">
+    <!-- <script src="/samples/js/sample.js"></script> -->
+    <!-- <link rel="stylesheet" href="/samples/css/samples.css"> -->
+    <!-- <link rel="stylesheet" href="/samples/toolbarconfigurator/lib/codemirror/neo.css"> -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script type="text/javascript">
         //Define an init function that sends the rich text editor contents to the page code
@@ -42,8 +42,9 @@
     <main>
         <div class="grid-container">
             <div class="grid-width-100">
-                <div id="editor">
-                </div>
+                <label for="editor"></label>
+                <textarea name="editor" id="editor" title="Editor" placeholder="Type article here.">
+                </textarea>
             </div>
         </div>
     </main>
@@ -51,7 +52,8 @@
             CKEDITOR.on('instanceReady', function (e) {
                 document.querySelector("a.cke_button__maximize").click();
             });
-            initSample();
+
+            CKEDITOR.replace('editor')
         </script>
 </body>
 
