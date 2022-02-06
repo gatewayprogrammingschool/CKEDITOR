@@ -8,15 +8,13 @@
 if (CKEDITOR.env.ie && CKEDITOR.env.version < 9)
 	CKEDITOR.tools.enableHtml5Elements(document);
 
-// The trick to keep the editor in the sample quite small
-// unless user specified own height.
-CKEDITOR.config.height = 350;
-CKEDITOR.config.width = 'auto';
-
 var initSample = (function () {
 	return function () {
 		var editorElement = CKEDITOR.document.getById('editor');
-
-		CKEDITOR.replace('editor');
+		let config = {
+			width: 'auto',
+			height: '350'
+		};
+		CKEDITOR.inline(editorElement, config);
 	};
 })();
