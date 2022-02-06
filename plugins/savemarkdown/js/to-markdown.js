@@ -1,17 +1,759 @@
-﻿(function(y){"object"===typeof exports&&"undefined"!==typeof module?module.exports=y():"function"===typeof define&&define.amd?define([],y):("undefined"!==typeof window?window:"undefined"!==typeof global?global:"undefined"!==typeof self?self:this).toMarkdown=y()})(function(){return function e(f,h,a){function c(b,p){if(!h[b]){if(!f[b]){var g="function"==typeof require&&require;if(!p&&g)return g(b,!0);if(d)return d(b,!0);g=Error("Cannot find module '"+b+"'");throw g.code="MODULE_NOT_FOUND",g;}g=h[b]=
-{exports:{}};f[b][0].call(g.exports,function(a){var d=f[b][1][a];return c(d?d:a)},g,g.exports,e,f,h,a)}return h[b].exports}for(var d="function"==typeof require&&require,b=0;b<a.length;b++)c(a[b]);return c}({1:[function(e,f,h){function a(a){return a.replace(/^[ \r\n\t]+|[ \r\n\t]+$/g,"")}function c(a){return-1!==B.indexOf(a.nodeName.toLowerCase())}function d(a){return-1!==C.indexOf(a.nodeName.toLowerCase())}function b(){var a=function(){};a.prototype.parseFromString=function(a){var d=w.implementation.createHTMLDocument("");
--1<a.toLowerCase().indexOf("\x3c!doctype")?d.documentElement.innerHTML=a:d.body.innerHTML=a;return d};return a}function r(a){for(var d="",b=0;b<a.childNodes.length;b++)1===a.childNodes[b].nodeType?d+=a.childNodes[b]._replacement:3===a.childNodes[b].nodeType&&(d+=a.childNodes[b].data);return d}function p(a,d){var b,g,p;"left"===a?(b=d.previousSibling,g=/ $/):(b=d.nextSibling,g=/^ /);b&&(3===b.nodeType?p=g.test(b.nodeValue):1!==b.nodeType||c(b)||(p=g.test(b.textContent)));return p}var g,u,A=e("./lib/md-converters"),
-D=e("./lib/gfm-converters"),k=e("collapse-whitespace"),l="undefined"!==typeof window?window:this,w;w="undefined"===typeof document?e("jsdom").jsdom():document;var B="address article aside audio blockquote body canvas center dd dir div dl dt fieldset figcaption figure footer form frameset h1 h2 h3 h4 h5 h6 header hgroup hr html isindex li main menu nav noframes noscript ol output p pre section table tbody td tfoot th thead tr ul".split(" "),C="area base br col command embed hr img input keygen link meta param source track wbr".split(" "),
-E=function(){var a=l.DOMParser,d=!1;try{(new a).parseFromString("","text/html")&&(d=!0)}catch(b){}return d}()?l.DOMParser:b();g=function(b,f){var e,h;f=f||{};if("string"!==typeof b)throw new TypeError(b+" is not a string");var l=b=b.replace(/(\d+)\. /g,"$1\\. "),l=(new E).parseFromString(l,"text/html");k(l,c);for(var l=l.body,v=[l],x=[],m,q;0<v.length;)for(m=v.shift(),x.push(m),m=m.childNodes,q=0;q<m.length;q++)1===m[q].nodeType&&v.push(m[q]);x.shift();u=A.slice(0);f.gfm&&(u=D.concat(u));f.converters&&
-(u=f.converters.concat(u));for(v=x.length-1;0<=v;v--)if(m=x[v],h=void 0,q=r(m),d(m)||/A/.test(m.nodeName)||!/^\s*$/i.test(q)){for(e=0;e<u.length;e++){var z=u[e],n;n=m;var t=z.filter;if("string"===typeof t)n=t===n.nodeName.toLowerCase();else if(Array.isArray(t))n=-1!==t.indexOf(n.nodeName.toLowerCase());else if("function"===typeof t)n=t.call(g,n);else throw new TypeError("`filter` needs to be a string, array, or function");if(n){if("function"!==typeof z.replacement)throw new TypeError("`replacement` needs to be a function that returns a string");
-e=m;h=n="";if(!c(e)){var t=/^[ \r\n\t]/.test(e.innerHTML),w=/[ \r\n\t]$/.test(e.innerHTML);t&&!p("left",e)&&(n=" ");w&&!p("right",e)&&(h=" ")}if((e=n)||h)q=a(q);h=e+z.replacement.call(g,q,m)+h;break}}m._replacement=h}else m._replacement="";return r(l).replace(/^[\t\r\n]+|[\t\r\n\s]+$/g,"").replace(/\n\s+\n/g,"\n\n").replace(/\n{3,}/g,"\n\n")};g.isBlock=c;g.isVoid=d;g.trim=a;g.outer=function(a,d){return a.cloneNode(!1).outerHTML.replace("\x3e\x3c","\x3e"+d+"\x3c")};f.exports=g},{"./lib/gfm-converters":2,
-"./lib/md-converters":3,"collapse-whitespace":4,jsdom:7}],2:[function(e,f,h){function a(a,b){var c=" ";0===Array.prototype.indexOf.call(b.parentNode.childNodes,b)&&(c="| ");return c+a+" |"}var c=/highlight highlight-(\S+)/;f.exports=[{filter:"br",replacement:function(){return"\n"}},{filter:["del","s","strike"],replacement:function(a){return"~~"+a+"~~"}},{filter:function(a){return"checkbox"===a.type&&"LI"===a.parentNode.nodeName},replacement:function(a,b){return(b.checked?"[x]":"[ ]")+" "}},{filter:["th",
-"td"],replacement:function(d,b){return a(d,b)}},{filter:"tr",replacement:function(d,b){var c="",p={left:":--",right:"--:",center:":-:"};if("THEAD"===b.parentNode.nodeName)for(var g=0;g<b.childNodes.length;g++){var e=b.childNodes[g].attributes.align,f="---";e&&(f=p[e.value]||f);c+=a(f,b.childNodes[g])}return"\n"+d+(c?"\n"+c:"")}},{filter:"table",replacement:function(a){return"\n\n"+a+"\n\n"}},{filter:["thead","tbody","tfoot"],replacement:function(a){return a}},{filter:function(a){return"PRE"===a.nodeName&&
-a.firstChild&&"CODE"===a.firstChild.nodeName},replacement:function(a,b){return"\n\n```\n"+b.firstChild.textContent+"\n```\n\n"}},{filter:function(a){return"PRE"===a.nodeName&&"DIV"===a.parentNode.nodeName&&c.test(a.parentNode.className)},replacement:function(a,b){return"\n\n```"+b.parentNode.className.match(c)[1]+"\n"+b.textContent+"\n```\n\n"}},{filter:function(a){return"DIV"===a.nodeName&&c.test(a.className)},replacement:function(a){return"\n\n"+a+"\n\n"}}]},{}],3:[function(e,f,h){f.exports=[{filter:"p",
-replacement:function(a){return"\n\n"+a+"\n\n"}},{filter:"br",replacement:function(){return"  \n"}},{filter:"h1 h2 h3 h4 h5 h6".split(" "),replacement:function(a,c){for(var d=c.nodeName.charAt(1),b="",e=0;e<d;e++)b+="#";return"\n\n"+b+" "+a+"\n\n"}},{filter:"hr",replacement:function(){return"\n\n* * *\n\n"}},{filter:["em","i"],replacement:function(a){return"_"+a+"_"}},{filter:["strong","b"],replacement:function(a){return"**"+a+"**"}},{filter:function(a){var c=a.previousSibling||a.nextSibling,c="PRE"===
-a.parentNode.nodeName&&!c;return"CODE"===a.nodeName&&!c},replacement:function(a){return"`"+a+"`"}},{filter:function(a){return"A"===a.nodeName&&a.getAttribute("href")},replacement:function(a,c){var d=c.title?' "'+c.title+'"':"";return"["+a+"]("+c.getAttribute("href")+d+")"}},{filter:"img",replacement:function(a,c){var d=c.alt||"",b=c.getAttribute("src")||"",e=c.title||"";return b?"!["+d+"]("+b+(e?' "'+e+'"':"")+")":""}},{filter:function(a){return"PRE"===a.nodeName&&"CODE"===a.firstChild.nodeName},
-replacement:function(a,c){return"\n\n    "+c.firstChild.textContent.replace(/\n/g,"\n    ")+"\n\n"}},{filter:"blockquote",replacement:function(a){a=this.trim(a);a=a.replace(/\n{3,}/g,"\n\n");a=a.replace(/^/gm,"\x3e ");return"\n\n"+a+"\n\n"}},{filter:"li",replacement:function(a,c){a=a.replace(/^\s+/,"").replace(/\n/gm,"\n    ");var d="*   ",d=c.parentNode,b=Array.prototype.indexOf.call(d.children,c)+1,d=/ol/i.test(d.nodeName)?b+".  ":"*   ";return d+a}},{filter:["ul","ol"],replacement:function(a,c){for(var d=
-[],b=0;b<c.childNodes.length;b++)d.push(c.childNodes[b]._replacement);return/li/i.test(c.parentNode.nodeName)?"\n"+d.join("\n"):"\n\n"+d.join("\n")+"\n\n"}},{filter:function(a){return this.isBlock(a)},replacement:function(a,c){return"\n\n"+this.outer(c,a)+"\n\n"}},{filter:function(){return!0},replacement:function(a,c){return this.outer(c,a)}}]},{}],4:[function(e,f,h){function a(a){return!(!a||!r[a.nodeName])}function c(a){var b=a.nextSibling||a.parentNode;a.parentNode.removeChild(a);return b}function d(a,
-b){return a&&a.parentNode===b||"PRE"===b.nodeName?b.nextSibling||b.parentNode:b.firstChild||b.nextSibling||b.parentNode}var b=e("void-elements");Object.keys(b).forEach(function(a){b[a.toUpperCase()]=1});var r={};e("block-elements").forEach(function(a){r[a.toUpperCase()]=1});f.exports=function(e,g){if(e.firstChild&&"PRE"!==e.nodeName){"function"!==typeof g&&(g=a);for(var f=null,h=!1,r=null,k=d(r,e);k!==e;){if(3===k.nodeType){var l=k.data.replace(/[ \r\n\t]+/g," ");f&&!/ $/.test(f.data)||h||" "!==l[0]||
-(l=l.substr(1));if(!l){k=c(k);continue}k.data=l;f=k}else if(1===k.nodeType)g(k)||"BR"===k.nodeName?(f&&(f.data=f.data.replace(/ $/,"")),f=null,h=!1):k&&b[k.nodeName]&&(f=null,h=!0);else{k=c(k);continue}l=d(r,k);r=k;k=l}f&&(f.data=f.data.replace(/ $/,""),f.data||c(f))}}},{"block-elements":5,"void-elements":6}],5:[function(e,f,h){f.exports="address article aside audio blockquote canvas dd div dl fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 header hgroup hr main nav noscript ol output p pre section table tfoot ul video".split(" ")},
-{}],6:[function(e,f,h){f.exports={area:!0,base:!0,br:!0,col:!0,embed:!0,hr:!0,img:!0,input:!0,keygen:!0,link:!0,menuitem:!0,meta:!0,param:!0,source:!0,track:!0,wbr:!0}},{}],7:[function(e,f,h){},{}]},{},[1])(1)});
+﻿(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.toMarkdown = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/*
+ * to-markdown - an HTML to Markdown converter
+ *
+ * Copyright 2011-15, Dom Christie
+ * Licenced under the MIT licence
+ *
+ */
+
+'use strict';
+
+var toMarkdown;
+var converters;
+var mdConverters = require('./lib/md-converters');
+var gfmConverters = require('./lib/gfm-converters');
+var collapse = require('collapse-whitespace');
+
+/*
+ * Set up window and document for Node.js
+ */
+
+var _window = (typeof window !== 'undefined' ? window : this), _document;
+if (typeof document === 'undefined') {
+  _document = require('jsdom').jsdom();
+}
+else {
+  _document = document;
+}
+
+/*
+ * Utilities
+ */
+
+function trim(string) {
+  return string.replace(/^[ \r\n\t]+|[ \r\n\t]+$/g, '');
+}
+
+var blocks = ['address', 'article', 'aside', 'audio', 'blockquote', 'body',
+  'canvas', 'center', 'dd', 'dir', 'div', 'dl', 'dt', 'fieldset', 'figcaption',
+  'figure', 'footer', 'form', 'frameset', 'h1', 'h2', 'h3', 'h4','h5', 'h6',
+  'header', 'hgroup', 'hr', 'html', 'isindex', 'li', 'main', 'menu', 'nav',
+  'noframes', 'noscript', 'ol', 'output', 'p', 'pre', 'section', 'table',
+  'tbody', 'td', 'tfoot', 'th', 'thead', 'tr', 'ul'
+];
+
+function isBlock(node) {
+  return blocks.indexOf(node.nodeName.toLowerCase()) !== -1;
+}
+
+var voids = [
+  'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input',
+  'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr'
+];
+
+function isVoid(node) {
+  return voids.indexOf(node.nodeName.toLowerCase()) !== -1;
+}
+
+/*
+ * Parsing HTML strings
+ */
+
+function canParseHtml() {
+  var Parser = _window.DOMParser, canParse = false;
+
+  // Adapted from https://gist.github.com/1129031
+  // Firefox/Opera/IE throw errors on unsupported types
+  try {
+    // WebKit returns null on unsupported types
+    if (new Parser().parseFromString('', 'text/html')) {
+      canParse = true;
+    }
+  } catch (e) {}
+  return canParse;
+}
+
+function createHtmlParser() {
+  var Parser = function () {};
+
+  Parser.prototype.parseFromString = function (string) {
+    var newDoc = _document.implementation.createHTMLDocument('');
+
+    if (string.toLowerCase().indexOf('<!doctype') > -1) {
+      newDoc.documentElement.innerHTML = string;
+    }
+    else {
+      newDoc.body.innerHTML = string;
+    }
+    return newDoc;
+  };
+  return Parser;
+}
+
+var HtmlParser = canParseHtml() ? _window.DOMParser : createHtmlParser();
+
+function htmlToDom(string) {
+  var tree = new HtmlParser().parseFromString(string, 'text/html');
+  collapse(tree, isBlock);
+  return tree;
+}
+
+/*
+ * Flattens DOM tree into single array
+ */
+
+function bfsOrder(node) {
+  var inqueue = [node],
+      outqueue = [],
+      elem, children, i;
+
+  while (inqueue.length > 0) {
+    elem = inqueue.shift();
+    outqueue.push(elem);
+    children = elem.childNodes;
+    for (i = 0 ; i < children.length; i++) {
+      if (children[i].nodeType === 1) { inqueue.push(children[i]); }
+    }
+  }
+  outqueue.shift();
+  return outqueue;
+}
+
+/*
+ * Contructs a Markdown string of replacement text for a given node
+ */
+
+function getContent(node) {
+  var text = '';
+  for (var i = 0; i < node.childNodes.length; i++) {
+    if (node.childNodes[i].nodeType === 1) {
+      text += node.childNodes[i]._replacement;
+    }
+    else if (node.childNodes[i].nodeType === 3) {
+      text += node.childNodes[i].data;
+    }
+    else { continue; }
+  }
+  return text;
+}
+
+/*
+ * Returns the HTML string of an element with its contents converted
+ */
+
+function outer(node, content) {
+  return node.cloneNode(false).outerHTML.replace('><', '>'+ content +'<');
+}
+
+function canConvert(node, filter) {
+  if (typeof filter === 'string') {
+    return filter === node.nodeName.toLowerCase();
+  }
+  if (Array.isArray(filter)) {
+    return filter.indexOf(node.nodeName.toLowerCase()) !== -1;
+  }
+  else if (typeof filter === 'function') {
+    return filter.call(toMarkdown, node);
+  }
+  else {
+    throw new TypeError('`filter` needs to be a string, array, or function');
+  }
+}
+
+function isFlankedByWhitespace(side, node) {
+  var sibling, regExp, isFlanked;
+
+  if (side === 'left') {
+    sibling = node.previousSibling;
+    regExp = / $/;
+  }
+  else {
+    sibling = node.nextSibling;
+    regExp = /^ /;
+  }
+
+  if (sibling) {
+    if (sibling.nodeType === 3) {
+      isFlanked = regExp.test(sibling.nodeValue);
+    }
+    else if(sibling.nodeType === 1 && !isBlock(sibling)) {
+      isFlanked = regExp.test(sibling.textContent);
+    }
+  }
+  return isFlanked;
+}
+
+function flankingWhitespace(node) {
+  var leading = '', trailing = '';
+
+  if (!isBlock(node)) {
+    var hasLeading = /^[ \r\n\t]/.test(node.innerHTML),
+        hasTrailing = /[ \r\n\t]$/.test(node.innerHTML);
+
+    if (hasLeading && !isFlankedByWhitespace('left', node)) {
+      leading = ' ';
+    }
+    if (hasTrailing && !isFlankedByWhitespace('right', node)) {
+      trailing = ' ';
+    }
+  }
+
+  return { leading: leading, trailing: trailing };
+}
+
+/*
+ * Finds a Markdown converter, gets the replacement, and sets it on
+ * `_replacement`
+ */
+
+function process(node) {
+  var replacement, content = getContent(node);
+
+  // Remove blank nodes
+  if (!isVoid(node) && !/A/.test(node.nodeName) && /^\s*$/i.test(content)) {
+    node._replacement = '';
+    return;
+  }
+
+  for (var i = 0; i < converters.length; i++) {
+    var converter = converters[i];
+
+    if (canConvert(node, converter.filter)) {
+      if (typeof converter.replacement !== 'function') {
+        throw new TypeError(
+          '`replacement` needs to be a function that returns a string'
+        );
+      }
+
+      var whitespace = flankingWhitespace(node);
+
+      if (whitespace.leading || whitespace.trailing) {
+        content = trim(content);
+      }
+      replacement = whitespace.leading +
+                    converter.replacement.call(toMarkdown, content, node) +
+                    whitespace.trailing;
+      break;
+    }
+  }
+
+  node._replacement = replacement;
+}
+
+toMarkdown = function (input, options) {
+  options = options || {};
+
+  if (typeof input !== 'string') {
+    throw new TypeError(input + ' is not a string');
+  }
+
+  // Escape potential ol triggers
+  input = input.replace(/(\d+)\. /g, '$1\\. ');
+
+  var clone = htmlToDom(input).body,
+      nodes = bfsOrder(clone),
+      output;
+
+  converters = mdConverters.slice(0);
+  if (options.gfm) {
+    converters = gfmConverters.concat(converters);
+  }
+
+  if (options.converters) {
+    converters = options.converters.concat(converters);
+  }
+
+  // Process through nodes in reverse (so deepest child elements are first).
+  for (var i = nodes.length - 1; i >= 0; i--) {
+    process(nodes[i]);
+  }
+  output = getContent(clone);
+
+  return output.replace(/^[\t\r\n]+|[\t\r\n\s]+$/g, '')
+               .replace(/\n\s+\n/g, '\n\n')
+               .replace(/\n{3,}/g, '\n\n');
+};
+
+toMarkdown.isBlock = isBlock;
+toMarkdown.isVoid = isVoid;
+toMarkdown.trim = trim;
+toMarkdown.outer = outer;
+
+module.exports = toMarkdown;
+
+},{"./lib/gfm-converters":2,"./lib/md-converters":3,"collapse-whitespace":4,"jsdom":7}],2:[function(require,module,exports){
+'use strict';
+
+function cell(content, node) {
+  var index = Array.prototype.indexOf.call(node.parentNode.childNodes, node);
+  var prefix = ' ';
+  if (index === 0) { prefix = '| '; }
+  return prefix + content + ' |';
+}
+
+var highlightRegEx = /highlight highlight-(\S+)/;
+
+module.exports = [
+  {
+    filter: 'br',
+    replacement: function () {
+      return '\n';
+    }
+  },
+  {
+    filter: ['del', 's', 'strike'],
+    replacement: function (content) {
+      return '~~' + content + '~~';
+    }
+  },
+
+  {
+    filter: function (node) {
+      return node.type === 'checkbox' && node.parentNode.nodeName === 'LI';
+    },
+    replacement: function (content, node) {
+      return (node.checked ? '[x]' : '[ ]') + ' ';
+    }
+  },
+
+  {
+    filter: ['th', 'td'],
+    replacement: function (content, node) {
+      return cell(content, node);
+    }
+  },
+
+  {
+    filter: 'tr',
+    replacement: function (content, node) {
+      var borderCells = '';
+      var alignMap = { left: ':--', right: '--:', center: ':-:' };
+
+      if (node.parentNode.nodeName === 'THEAD') {
+        for (var i = 0; i < node.childNodes.length; i++) {
+          var align = node.childNodes[i].attributes.align;
+          var border = '---';
+
+          if (align) { border = alignMap[align.value] || border; }
+
+          borderCells += cell(border, node.childNodes[i]);
+        }
+      }
+      return '\n' + content + (borderCells ? '\n' + borderCells : '');
+    }
+  },
+
+  {
+    filter: 'table',
+    replacement: function (content) {
+      return '\n\n' + content + '\n\n';
+    }
+  },
+
+  {
+    filter: ['thead', 'tbody', 'tfoot'],
+    replacement: function (content) {
+      return content;
+    }
+  },
+
+  // Fenced code blocks
+  {
+    filter: function (node) {
+      return node.nodeName === 'PRE' &&
+             node.firstChild &&
+             node.firstChild.nodeName === 'CODE';
+    },
+    replacement: function(content, node) {
+      return '\n\n```\n' + node.firstChild.textContent + '\n```\n\n';
+    }
+  },
+
+  // Syntax-highlighted code blocks
+  {
+    filter: function (node) {
+      return node.nodeName === 'PRE' &&
+             node.parentNode.nodeName === 'DIV' &&
+             highlightRegEx.test(node.parentNode.className);
+    },
+    replacement: function (content, node) {
+      var language = node.parentNode.className.match(highlightRegEx)[1];
+      return '\n\n```' + language + '\n' + node.textContent + '\n```\n\n';
+    }
+  },
+
+  {
+    filter: function (node) {
+      return node.nodeName === 'DIV' &&
+             highlightRegEx.test(node.className);
+    },
+    replacement: function (content) {
+      return '\n\n' + content + '\n\n';
+    }
+  }
+];
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+module.exports = [
+  {
+    filter: 'p',
+    replacement: function (content) {
+      return '\n\n' + content + '\n\n';
+    }
+  },
+
+  {
+    filter: 'br',
+    replacement: function () {
+      return '  \n';
+    }
+  },
+
+  {
+    filter: ['h1', 'h2', 'h3', 'h4','h5', 'h6'],
+    replacement: function(content, node) {
+      var hLevel = node.nodeName.charAt(1);
+      var hPrefix = '';
+      for(var i = 0; i < hLevel; i++) {
+        hPrefix += '#';
+      }
+      return '\n\n' + hPrefix + ' ' + content + '\n\n';
+    }
+  },
+
+  {
+    filter: 'hr',
+    replacement: function () {
+      return '\n\n* * *\n\n';
+    }
+  },
+
+  {
+    filter: ['em', 'i'],
+    replacement: function (content) {
+      return '_' + content + '_';
+    }
+  },
+
+  {
+    filter: ['strong', 'b'],
+    replacement: function (content) {
+      return '**' + content + '**';
+    }
+  },
+
+  // Inline code
+  {
+    filter: function (node) {
+      var hasSiblings = node.previousSibling || node.nextSibling;
+      var isCodeBlock = node.parentNode.nodeName === 'PRE' && !hasSiblings;
+
+      return node.nodeName === 'CODE' && !isCodeBlock;
+    },
+    replacement: function(content) {
+      return '`' + content + '`';
+    }
+  },
+
+  {
+    filter: function (node) {
+      return node.nodeName === 'A' && node.getAttribute('href');
+    },
+    replacement: function(content, node) {
+      var titlePart = node.title ? ' "'+ node.title +'"' : '';
+      return '[' + content + '](' + node.getAttribute('href') + titlePart + ')';
+    }
+  },
+
+  {
+    filter: 'img',
+    replacement: function(content, node) {
+      var alt = node.alt || '';
+      var src = node.getAttribute('src') || '';
+      var title = node.title || '';
+      var titlePart = title ? ' "'+ title +'"' : '';
+      return src ? '![' + alt + ']' + '(' + src + titlePart + ')' : '';
+    }
+  },
+
+  // Code blocks
+  {
+    filter: function (node) {
+      return node.nodeName === 'PRE' && node.firstChild.nodeName === 'CODE';
+    },
+    replacement: function(content, node) {
+      return '\n\n    ' + node.firstChild.textContent.replace(/\n/g, '\n    ') + '\n\n';
+    }
+  },
+
+  {
+    filter: 'blockquote',
+    replacement: function (content) {
+      content = this.trim(content);
+      content = content.replace(/\n{3,}/g, '\n\n');
+      content = content.replace(/^/gm, '> ');
+      return '\n\n' + content + '\n\n';
+    }
+  },
+
+  {
+    filter: 'li',
+    replacement: function (content, node) {
+      content = content.replace(/^\s+/, '').replace(/\n/gm, '\n    ');
+      var prefix = '*   ';
+      var parent = node.parentNode;
+      var index = Array.prototype.indexOf.call(parent.children, node) + 1;
+
+      prefix = /ol/i.test(parent.nodeName) ? index + '.  ' : '*   ';
+      return prefix + content;
+    }
+  },
+
+  {
+    filter: ['ul', 'ol'],
+    replacement: function (content, node) {
+      var strings = [];
+      for (var i = 0; i < node.childNodes.length; i++) {
+        strings.push(node.childNodes[i]._replacement);
+      }
+
+      if (/li/i.test(node.parentNode.nodeName)) {
+        return '\n' + strings.join('\n');
+      }
+      return '\n\n' + strings.join('\n') + '\n\n';
+    }
+  },
+
+  {
+    filter: function (node) {
+      return this.isBlock(node);
+    },
+    replacement: function (content, node) {
+      return '\n\n' + this.outer(node, content) + '\n\n';
+    }
+  },
+
+  // Anything else!
+  {
+    filter: function () {
+      return true;
+    },
+    replacement: function (content, node) {
+      return this.outer(node, content);
+    }
+  }
+];
+},{}],4:[function(require,module,exports){
+'use strict';
+
+var voidElements = require('void-elements');
+Object.keys(voidElements).forEach(function (name) {
+  voidElements[name.toUpperCase()] = 1;
+});
+
+var blockElements = {};
+require('block-elements').forEach(function (name) {
+  blockElements[name.toUpperCase()] = 1;
+});
+
+/**
+ * isBlockElem(node) determines if the given node is a block element.
+ *
+ * @param {Node} node
+ * @return {Boolean}
+ */
+function isBlockElem(node) {
+  return !!(node && blockElements[node.nodeName]);
+}
+
+/**
+ * isVoid(node) determines if the given node is a void element.
+ *
+ * @param {Node} node
+ * @return {Boolean}
+ */
+function isVoid(node) {
+  return !!(node && voidElements[node.nodeName]);
+}
+
+/**
+ * whitespace(elem [, isBlock]) removes extraneous whitespace from an
+ * the given element. The function isBlock may optionally be passed in
+ * to determine whether or not an element is a block element; if none
+ * is provided, defaults to using the list of block elements provided
+ * by the `block-elements` module.
+ *
+ * @param {Node} elem
+ * @param {Function} blockTest
+ */
+function collapseWhitespace(elem, isBlock) {
+  if (!elem.firstChild || elem.nodeName === 'PRE') return;
+
+  if (typeof isBlock !== 'function') {
+    isBlock = isBlockElem;
+  }
+
+  var prevText = null;
+  var prevVoid = false;
+
+  var prev = null;
+  var node = next(prev, elem);
+
+  while (node !== elem) {
+    if (node.nodeType === 3) {
+      // Node.TEXT_NODE
+      var text = node.data.replace(/[ \r\n\t]+/g, ' ');
+
+      if ((!prevText || / $/.test(prevText.data)) && !prevVoid && text[0] === ' ') {
+        text = text.substr(1);
+      }
+
+      // `text` might be empty at this point.
+      if (!text) {
+        node = remove(node);
+        continue;
+      }
+
+      node.data = text;
+      prevText = node;
+    } else if (node.nodeType === 1) {
+      // Node.ELEMENT_NODE
+      if (isBlock(node) || node.nodeName === 'BR') {
+        if (prevText) {
+          prevText.data = prevText.data.replace(/ $/, '');
+        }
+
+        prevText = null;
+        prevVoid = false;
+      } else if (isVoid(node)) {
+        // Avoid trimming space around non-block, non-BR void elements.
+        prevText = null;
+        prevVoid = true;
+      }
+    } else {
+      node = remove(node);
+      continue;
+    }
+
+    var nextNode = next(prev, node);
+    prev = node;
+    node = nextNode;
+  }
+
+  if (prevText) {
+    prevText.data = prevText.data.replace(/ $/, '');
+    if (!prevText.data) {
+      remove(prevText);
+    }
+  }
+}
+
+/**
+ * remove(node) removes the given node from the DOM and returns the
+ * next node in the sequence.
+ *
+ * @param {Node} node
+ * @return {Node} node
+ */
+function remove(node) {
+  var next = node.nextSibling || node.parentNode;
+
+  node.parentNode.removeChild(node);
+
+  return next;
+}
+
+/**
+ * next(prev, current) returns the next node in the sequence, given the
+ * current and previous nodes.
+ *
+ * @param {Node} prev
+ * @param {Node} current
+ * @return {Node}
+ */
+function next(prev, current) {
+  if (prev && prev.parentNode === current || current.nodeName === 'PRE') {
+    return current.nextSibling || current.parentNode;
+  }
+
+  return current.firstChild || current.nextSibling || current.parentNode;
+}
+
+module.exports = collapseWhitespace;
+
+},{"block-elements":5,"void-elements":6}],5:[function(require,module,exports){
+/**
+ * This file automatically generated from `build.js`.
+ * Do not manually edit.
+ */
+
+module.exports = [
+  "address",
+  "article",
+  "aside",
+  "audio",
+  "blockquote",
+  "canvas",
+  "dd",
+  "div",
+  "dl",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "footer",
+  "form",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "header",
+  "hgroup",
+  "hr",
+  "main",
+  "nav",
+  "noscript",
+  "ol",
+  "output",
+  "p",
+  "pre",
+  "section",
+  "table",
+  "tfoot",
+  "ul",
+  "video"
+];
+
+},{}],6:[function(require,module,exports){
+/**
+ * This file automatically generated from `pre-publish.js`.
+ * Do not manually edit.
+ */
+
+module.exports = {
+  "area": true,
+  "base": true,
+  "br": true,
+  "col": true,
+  "embed": true,
+  "hr": true,
+  "img": true,
+  "input": true,
+  "keygen": true,
+  "link": true,
+  "menuitem": true,
+  "meta": true,
+  "param": true,
+  "source": true,
+  "track": true,
+  "wbr": true
+};
+
+},{}],7:[function(require,module,exports){
+
+},{}]},{},[1])(1)
+});

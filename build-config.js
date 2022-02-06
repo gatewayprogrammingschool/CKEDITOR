@@ -13,10 +13,10 @@
  * (1) https://ckeditor.com/cke4/builder
  *     Visit online builder to build CKEditor from scratch.
  *
- * (2) https://ckeditor.com/cke4/builder/85e3fb589fa995a18a87acbd7e939328
+ * (2) https://ckeditor.com/cke4/builder/495d9a89f245aa1fc41565cd92e6b512
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
- * (3) https://ckeditor.com/cke4/builder/download/85e3fb589fa995a18a87acbd7e939328
+ * (3) https://ckeditor.com/cke4/builder/download/495d9a89f245aa1fc41565cd92e6b512
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
@@ -25,8 +25,8 @@
  */
 
 var CKBUILDER_CONFIG = {
-	skin: 'moono-lisa',
-	preset: 'basic',
+	skin: 'moono-dark',
+	preset: 'standard',
 	ignore: [
 		'.DS_Store',
 		'.bender',
@@ -54,47 +54,52 @@ var CKBUILDER_CONFIG = {
 		'tests'
 	],
 	plugins : {
-		'SPImage' : 1,
-		'SimpleImage' : 1,
+		'a11yhelp' : 1,
 		'about' : 1,
 		'basicstyles' : 1,
-		'ccmssourcedialog' : 1,
-		'ckeditortablecellsselection' : 1,
-		'clipboard' : 1,
+		'blockquote' : 1,
 		'contents' : 1,
+		'contextmenu' : 1,
+		'elementspath' : 1,
 		'enterkey' : 1,
 		'entities' : 1,
+		'filebrowser' : 1,
 		'floatingspace' : 1,
+		'format' : 1,
+		'horizontalrule' : 1,
+		'htmlwriter' : 1,
 		'indentlist' : 1,
 		'link' : 1,
 		'list' : 1,
+		'magicline' : 1,
 		'markdown' : 1,
 		'maximize' : 1,
 		'nbsp' : 1,
 		'pagebreak' : 1,
-		'pastecode' : 1,
 		'pastefromgdocs' : 1,
 		'pastefromword' : 1,
 		'pastetext' : 1,
+		'removeformat' : 1,
+		'resize' : 1,
 		'resizewithwindow' : 1,
 		'savemarkdown' : 1,
+		'scayt' : 1,
 		'selectall' : 1,
 		'selectallcontextmenu' : 1,
 		'showborders' : 1,
-		'spreadsheet' : 1,
-		'stylesheetparser' : 1,
+		'sourcearea' : 1,
+		'specialchar' : 1,
+		'stylescombo' : 1,
 		'stylesheetparser-fixed' : 1,
-		'syntaxhighlight' : 1,
+		'tab' : 1,
 		'table' : 1,
 		'tableresize' : 1,
-		'tablesorter' : 1,
+		'tableselection' : 1,
+		'tabletools' : 1,
 		'tabletoolstoolbar' : 1,
 		'textindent' : 1,
-		'toolbar' : 1,
 		'uicolor' : 1,
 		'undo' : 1,
-		'uploadfile' : 1,
-		'uploadimage' : 1,
 		'widgetcontextmenu' : 1,
 		'widgettemplatemenu' : 1,
 		'youtube' : 1
