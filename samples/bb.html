@@ -52,10 +52,10 @@
         CKEDITOR.on('instanceReady', function (e) {
             document.querySelector("a.cke_button__maximize").click();
         });
-        CKEDITOR.editorConfig = function (config) { 
+        CKEDITOR.editorConfig = function (config) {
             config.plugins =
                 'dialogui,dialog,about,a11yhelp,basicstyles,blockquote,panel,floatpanel,menu,contextmenu,resize,elementspath,enterkey,entities,popup,filetools,filebrowser,floatingspace,listblock,button,richcombo,format,horizontalrule,htmlwriter,indent,indentlist,fakeobjects,link,list,magicline,maximize,notification,toolbar,clipboard,pastetext,xml,ajax,pastetools,pastefromgdocs,pastefromword,removeformat,showborders,sourcearea,specialchar,menubutton,scayt,stylescombo,tab,table,tabletools,tableselection,undo,lineutils,widgetselection,widget,notificationaggregator,youtube,markdown,nbsp,pagebreak,textindent,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,textwatcher,autocomplete,stylesheetparser-fixed,contents,tableresize,tabletoolstoolbar,widgettemplatemenu,uicolor,widgetcontextmenu';
-            config.skin = 'moono-dark'; 
+            config.skin = 'moono-dark';
             config.toolbarGroups = [{
                 name: 'clipboard',
                 groups: ['clipboard', 'undo']
@@ -88,7 +88,7 @@
             }, {
                 name: 'about'
             }];
-            
+
             elements.config.format_tags = 'p;h1;h2;h3;pre'; // Simplify the dialog windows.
             config.removeDialogTabs = 'image:advanced;link:advanced';
             config.colorButton_foreStyle = {
@@ -104,8 +104,11 @@
                 }
             };
         };
-        CKEDITOR.replace('editor'); 
-        CKEDITOR.instances.editor.resize('100%', '350');
+        CKEDITOR.replace('editor');
+        const editor = CKEDITOR.instances.editor;
+
+        editor.resize('100%', '350');
+        editor.setReadOnly(false);
 
     </script>
 </body>
