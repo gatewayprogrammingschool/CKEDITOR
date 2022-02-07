@@ -52,9 +52,7 @@
         CKEDITOR.on('instanceReady', function (e) {
             document.querySelector("a.cke_button__maximize").click();
         });
-        CKEDITOR.replace('editor', {
-            baseFloatZIndex: 10005
-        });
+        CKEDITOR.replace('editor');
         //Delayed execution - ckeditor must be properly initialized before setting readonly
         var retryCount = 0;
         var delayedSetReadOnly = function () {
@@ -70,6 +68,7 @@
             editor.setReadOnly(false);
             editor.resize('100%', '350');
             CKEDITOR.editorConfig = function (config) {
+                config.baseFloatZIndex = 10005;
                 // config.plugins ='dialogui,dialog,about,a11yhelp,basicstyles,blockquote,panel,floatpanel,menu,contextmenu,resize,elementspath,enterkey,entities,popup,filetools,filebrowser,floatingspace,listblock,button,richcombo,format,horizontalrule,htmlwriter,indent,indentlist,fakeobjects,link,list,magicline,maximize,notification,toolbar,clipboard,pastetext,xml,ajax,pastetools,pastefromgdocs,pastefromword,removeformat,showborders,sourcearea,specialchar,menubutton,scayt,stylescombo,tab,table,tabletools,tableselection,undo,lineutils,widgetselection,widget,notificationaggregator,youtube,markdown,nbsp,pagebreak,textindent,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,textwatcher,autocomplete,stylesheetparser-fixed,contents,tableresize,tabletoolstoolbar,widgettemplatemenu,uicolor,widgetcontextmenu';
                 // config.skin = 'moono-dark'; 
                 config.toolbarGroups = [{
