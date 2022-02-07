@@ -52,7 +52,7 @@
         CKEDITOR.on('instanceReady', function (e) {
             document.querySelector("a.cke_button__maximize").click();
         });
-        CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor', true);
         //Delayed execution - ckeditor must be properly initialized before setting readonly
         var retryCount = 0;
         var delayedSetReadOnly = function () {
