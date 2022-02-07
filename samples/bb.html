@@ -67,11 +67,14 @@
         function configure(editor) {
             editor.setReadOnly(false);
             editor.resize('100%', '350');
-            CKEDITOR.editorConfig = function (config) {
-                config.baseFloatZIndex = 10005;
+            elements.config.format_tags = 'p;h1;h2;h3;pre';
+
+            {
+                baseFloatZIndex: 10005,
                 // config.plugins ='dialogui,dialog,about,a11yhelp,basicstyles,blockquote,panel,floatpanel,menu,contextmenu,resize,elementspath,enterkey,entities,popup,filetools,filebrowser,floatingspace,listblock,button,richcombo,format,horizontalrule,htmlwriter,indent,indentlist,fakeobjects,link,list,magicline,maximize,notification,toolbar,clipboard,pastetext,xml,ajax,pastetools,pastefromgdocs,pastefromword,removeformat,showborders,sourcearea,specialchar,menubutton,scayt,stylescombo,tab,table,tabletools,tableselection,undo,lineutils,widgetselection,widget,notificationaggregator,youtube,markdown,nbsp,pagebreak,textindent,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,textwatcher,autocomplete,stylesheetparser-fixed,contents,tableresize,tabletoolstoolbar,widgettemplatemenu,uicolor,widgetcontextmenu';
-                // config.skin = 'moono-dark'; 
-                config.toolbarGroups = [{
+                // config.skin = 'moono-dark';
+                toolbarGroups: [
+                    {
                         name: 'clipboard',
                         groups: ['clipboard', 'undo']
                     }, {
@@ -101,22 +104,21 @@
                     }, {
                         name: 'about'
                     }
-                ];
-                elements.config.format_tags = 'p;h1;h2;h3;pre';
+                ],
                 // Simplify the dialog windows.
-                config.removeDialogTabs = 'image:advanced;link:advanced';
-                config.colorButton_foreStyle = {
+                removeDialogTabs = 'image:advanced;link:advanced',
+                colorButton_foreStyle = {
                     element: 'font',
                     attributes: {
                         'color': '#(color)'
                     }
-                };
-                config.colorButton_backStyle = {
+                },
+                colorButton_backStyle = {
                     element: 'font',
                     styles: {
                         'background-color': '#(color)'
                     }
-                };
+                },
             }
         }
     </script>
