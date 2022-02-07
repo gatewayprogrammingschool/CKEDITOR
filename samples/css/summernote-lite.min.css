@@ -18,7 +18,7 @@
   font-display: auto;
   src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.eot);
   src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.eot?#iefix) format('embedded-opentype'),
-    url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.woff2) format('woff2'),
+    /* url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.woff2) format('woff2'), */
     url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.woff) format('woff'),
     url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.ttf) format('truetype');
 }
