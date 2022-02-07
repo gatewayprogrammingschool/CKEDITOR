@@ -49,8 +49,16 @@
                     }
                 }
             };
-        }
 
+            const editor = $('#summernote').summernote({
+                placeholder: 'Type or paste article here.',
+                fontNames: ['Kollektif Regular', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                minHeight: 350,
+                focus: true,
+            });
+            editor('fullscreen.toggle');
+            editor('fontName', 'Kollektif Regular');
+        }
     </script>
 </head>
 
@@ -58,18 +66,6 @@
     <main>
         <textarea id="summernote"></textarea>
     </main>
-    <script>
-        $(document).ready(function () {
-            $('#summernote').summernote({
-                placeholder: 'Type or paste article here.',
-                fontNames: ['Kollektif Regular', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                minHeight: 350,
-                focus: true,
-            });
-        });
-        $('#summernote').summernote('fullscreen.toggle');
-        $('#summernote').summernote('fontName', 'Kollektif Regular');
-    </script>
 </body>
 
 </html>
