@@ -87,7 +87,6 @@
             }, {
                 name: 'about'
             }];
-
             elements.config.format_tags = 'p;h1;h2;h3;pre'; // Simplify the dialog windows.
             config.removeDialogTabs = 'image:advanced;link:advanced';
             config.colorButton_foreStyle = {
@@ -103,11 +102,23 @@
                 }
             };
         };
-        CKEDITOR.replace('editor', { baseFloatZIndex: 10005 });
-        const editor = CKEDITOR.instances['editor'];
+        CKEDITOR.replace('editor', {
+            baseFloatZIndex: 10005
+        });
 
-        // editor.resize('100%', '350');
-        editor.setReadOnly(false);
+        //Delayed execution - ckeditor must be properly initialized before setting readonly
+        var retryCount = 0;
+        var delayedSetReadOnly = function () {
+            if (CKEDITOR.instances['editor'].editable() == undefined && retryCount++ < 10) {
+                setTimeout(delayedSetReadOnly, retryCount * 100); //Wait a while longer each
+                iteration
+            } else {
+                const editor = CKEDITOR.instances['editor'];
+                editor.setReadOnly(false);
+                editor.resize('100%', '350');
+            }
+        };
+        setTimeout(delayedSetReadOnly, 50);
 
     </script>
 </body>
