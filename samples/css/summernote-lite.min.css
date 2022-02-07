@@ -11,17 +11,7 @@
     --accent-light: rgb(from var(--accent) h s calc(l + 25%));
     --accent-dark: rgb(from var(--accent) h s calc(l - 25%));
 }
-@font-face {
-  font-family: summernote;
-  font-style: normal;
-  font-weight: 400;
-  font-display: auto;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.eot);
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.eot?#iefix) format('embedded-opentype'),
-    /* url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.woff2) format('woff2'), */
-    url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.woff) format('woff'),
-    url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/font/summernote.ttf) format('truetype');
-}
+
 [class*=' note-icon']:before,
 [class^='note-icon']:before {
   display: inline-block;
