@@ -111,7 +111,6 @@
         var delayedSetReadOnly = function () {
             if (CKEDITOR.instances['editor'].editable() == undefined && retryCount++ < 10) {
                 setTimeout(delayedSetReadOnly, retryCount * 100); //Wait a while longer each
-                iteration
             } else {
                 const editor = CKEDITOR.instances['editor'];
                 editor.setReadOnly(false);
