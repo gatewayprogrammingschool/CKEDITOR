@@ -53,56 +53,56 @@
             document.querySelector("a.cke_button__maximize").click();
         });
         CKEDITOR.replace('editor', {
-                baseFloatZIndex: 10005,
-                // config.plugins ='dialogui,dialog,about,a11yhelp,basicstyles,blockquote,panel,floatpanel,menu,contextmenu,resize,elementspath,enterkey,entities,popup,filetools,filebrowser,floatingspace,listblock,button,richcombo,format,horizontalrule,htmlwriter,indent,indentlist,fakeobjects,link,list,magicline,maximize,notification,toolbar,clipboard,pastetext,xml,ajax,pastetools,pastefromgdocs,pastefromword,removeformat,showborders,sourcearea,specialchar,menubutton,scayt,stylescombo,tab,table,tabletools,tableselection,undo,lineutils,widgetselection,widget,notificationaggregator,youtube,markdown,nbsp,pagebreak,textindent,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,textwatcher,autocomplete,stylesheetparser-fixed,contents,tableresize,tabletoolstoolbar,widgettemplatemenu,uicolor,widgetcontextmenu';
-                // config.skin = 'moono-dark';
-                toolbarGroups: [
-                    {
-                        name: 'clipboard',
-                        groups: ['clipboard', 'undo']
-                    }, {
-                        name: 'editing',
-                        groups: ['find', 'selection', 'spellchecker']
-                    },
-                    // }, {
-                    // name: 'links'
-                    // }, {
-                    // name: 'insert'
-                    // }, {
-                    // name: 'forms'
-                    // }, {
-                    // name: 'tools'
-                    // }, {
-                    // name: 'document',
-                    // groups: ['mode', 'document', 'doctools']
-                    // }, {
-                    // name: 'others' }, '/', { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] }, 
-                    {
-                        name: 'paragraph',
-                        groups: ['list', 'indent', 'blocks', 'align', 'bidi']
-                    }, {
-                        name: 'styles'
-                    }, {
-                        name: 'colors'
-                    }, {
-                        name: 'about'
-                    }
-                ],
-                // Simplify the dialog windows.
-                removeDialogTabs: 'image:advanced;link:advanced',
-                colorButton_foreStyle: {
-                    element: 'font',
-                    attributes: {
-                        'color': '#(color)'
-                    }
-                },
-                colorButton_backStyle: {
-                    element: 'font',
-                    styles: {
-                        'background-color': '#(color)'
-                    }
-                },
-            });
+            baseFloatZIndex: 10005,
+            // config.plugins ='dialogui,dialog,about,a11yhelp,basicstyles,blockquote,panel,floatpanel,menu,contextmenu,resize,elementspath,enterkey,entities,popup,filetools,filebrowser,floatingspace,listblock,button,richcombo,format,horizontalrule,htmlwriter,indent,indentlist,fakeobjects,link,list,magicline,maximize,notification,toolbar,clipboard,pastetext,xml,ajax,pastetools,pastefromgdocs,pastefromword,removeformat,showborders,sourcearea,specialchar,menubutton,scayt,stylescombo,tab,table,tabletools,tableselection,undo,lineutils,widgetselection,widget,notificationaggregator,youtube,markdown,nbsp,pagebreak,textindent,resizewithwindow,savemarkdown,selectall,selectallcontextmenu,textwatcher,autocomplete,stylesheetparser-fixed,contents,tableresize,tabletoolstoolbar,widgettemplatemenu,uicolor,widgetcontextmenu';
+            // config.skin = 'moono-dark';
+            toolbarGroups: [{
+                name: 'clipboard',
+                groups: ['clipboard', 'undo']
+            }, {
+                name: 'editing',
+                groups: ['find', 'selection', 'spellchecker']
+            }, {
+                name: 'links'
+            }, {
+                name: 'insert'
+            }, {
+                name: 'forms'
+            }, {
+                name: 'tools'
+            }, {
+                name: 'document',
+                groups: ['mode', 'document', 'doctools']
+            }, {
+                name: 'others'
+            }, {
+                name: 'basicstyles',
+                groups: ['basicstyles', 'cleanup']
+            }, {
+                name: 'paragraph',
+                groups: ['list', 'indent', 'blocks', 'align', 'bidi']
+            }, {
+                name: 'styles'
+            }, {
+                name: 'colors'
+            }, {
+                name: 'about'
+            }],
+            // Simplify the dialog windows.
+            removeDialogTabs: 'image:advanced;link:advanced',
+            colorButton_foreStyle: {
+                element: 'font',
+                attributes: {
+                    'color': '#(color)'
+                }
+            },
+            colorButton_backStyle: {
+                element: 'font',
+                styles: {
+                    'background-color': '#(color)'
+                }
+            },
+        });
         //Delayed execution - ckeditor must be properly initialized before setting readonly
         var retryCount = 0;
         var delayedSetReadOnly = function () {
@@ -119,6 +119,7 @@
             editor.resize('100%', '350');
             elements.config.format_tags = 'p;h1;h2;h3;pre';
         }
+
     </script>
 </body>
 
