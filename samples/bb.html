@@ -16,18 +16,19 @@
             window.onmessage = (event) => {
                 if (event.data) {
                     const text = event.data;
+                    const editor = CKEDITOR.instances['editor'];
                     if (text !== " ") {
                         console.log(`received: ${text}`);
                         if (text !== "👍🏼") {
-                            CKEDITOR.instances.editor.setData(text);
-                            CKEDITOR.instances.editor.setData(text);
-                            console.log(CKEDITOR.instances.editor.getData());
+                            editor.setData(text);
+                            editor.setData(text);
+                            console.log(editor.getData());
                         } else {
-                            CKEDITOR.instances.editor.setData("");
-                            CKEDITOR.instances.editor.setData("");
+                            editor.setData("");
+                            editor.setData("");
                         }
                     } else {
-                        const text = CKEDITOR.instances.editor.getData();
+                        const text = editor.getData();
                         console.log(text);
                         window.parent.postMessage(text, "*");
                     }
