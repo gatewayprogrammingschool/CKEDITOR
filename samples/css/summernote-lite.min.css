@@ -596,9 +596,9 @@ a.note-dropdown-item:hover {
 .note-modal .note-nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #007bff;
+  color: var(--text);
   text-decoration: none;
-  background-color: transparent;
+  background-color: var(--accent-25alpha);
   -webkit-text-decoration-skip: objects;
 }
 .note-modal .note-nav-link:focus,
@@ -616,7 +616,7 @@ a.note-dropdown-item:hover {
   margin-bottom: -1px;
 }
 .note-modal .note-nav-tabs .note-nav-link {
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
@@ -625,9 +625,9 @@ a.note-dropdown-item:hover {
   border-color: var(--border);
 }
 .note-modal .note-nav-tabs .note-nav-link.disabled {
-  color: var(--accent-dark);
-  background-color: transparent;
-  border-color: transparent;
+  color: var(--background-control);
+  background-color: var(--background);
+  border-color: var(--border);
 }
 .note-modal .note-nav-tabs .note-nav-item.show .note-nav-link {
   color: var(--text);
@@ -752,7 +752,7 @@ a.note-dropdown-item:hover {
   position: absolute;
   width: 0;
   height: 0;
-  border-color: transparent;
+  border-color: var(--border);
   border-style: solid;
 }
 .note-tooltip-content {
@@ -856,7 +856,7 @@ a.note-dropdown-item:hover {
   position: absolute;
   width: 0;
   height: 0;
-  border: 11px solid transparent;
+  border: 11px solid var(--border);
 }
 .note-popover-arrow:after {
   position: absolute;
@@ -864,7 +864,7 @@ a.note-dropdown-item:hover {
   width: 0;
   height: 0;
   content: ' ';
-  border: 10px solid transparent;
+  border: 10px solid var(--border);
 }
 .note-popover-content {
   padding: 3px 8px;
@@ -991,7 +991,7 @@ a.note-dropdown-item:hover {
 .note-editor.note-airframe .note-status-output:empty,
 .note-editor.note-frame .note-status-output:empty {
   height: 0;
-  border-top: 0 solid transparent;
+  border-top: 0 solid var(--border);
 }
 .note-editor.note-airframe .note-status-output .pull-right,
 .note-editor.note-frame .note-status-output .pull-right {
