@@ -877,7 +877,7 @@ a.note-dropdown-item:hover {
 .note-editor {
   position: relative;
   color: var(--text);
-  background-color: var(--background);
+  background-color: var(--background-control);
 }
 
 .note-editor .note-dropzone {
@@ -901,7 +901,7 @@ a.note-dropdown-item:hover {
 }
 .note-editor .note-editing-area {
   position: relative;
-  background-color: var(--background-control);
+  background-color: var(--background);
 }
 .note-editor .note-editing-area .note-editable {
   outline: none;
