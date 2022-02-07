@@ -16,15 +16,17 @@
     <style type="text/css">
         @font-face {
             font-family: summernote;
-            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.eot)
-            format("eot");
-            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.ttf)
-            format("ttf");
-            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.woff)
-            format("woff");
-            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.woff2)
-            format("woff2");
+            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.eot) format("eot");
+            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.ttf) format("ttf");
+            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.woff) format("woff");
+            src: url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/font/summernote.woff2) format("woff2");
         }
+
+        @font-face {
+            font-family: 'Kollektif';
+            src: url('/samples/css/kollectif/Kollektif.woff') format('woff');
+        }
+
     </style>
     <script type="text/javascript">
         //Define an init function that sends the rich text editor contents to the page code
@@ -51,8 +53,8 @@
             };
 
             const editor = $('#summernote').summernote({
-                fontNames: ['Kollektif Regular', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                fontName: 'Kollektif Regular',
+                fontNames: ['Kollektif', 'Comic Sans MS', 'Courier New'],
+                fontName: 'Kollektif',
                 minHeight: 350,
                 focus: true,
             });
