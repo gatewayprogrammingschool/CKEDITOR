@@ -10,6 +10,7 @@
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
     <link href="/samples/css/summernote-lite.min.css" rel="stylesheet">
+    <link href="/samples/css/kollectif/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js">
     </script>
     <style type="text/css">
@@ -38,7 +39,8 @@
                             $('#summernote').summernote('code', text);
                             console.log($('#summernote').summernote('code'));
                         } else {
-                            $('#summernote').summernote('code', "");
+                            $('#summernote').summernote('reset');
+                            $('#summernote').summernote('fontName', 'Arial');
                         }
                     } else {
                         const text = $('#summernote').summernote('code');
@@ -60,11 +62,13 @@
         $(document).ready(function () {
             $('#summernote').summernote({
                 placeholder: 'Type or paste article here.',
+                fontNames: ['Kollectif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
                 minHeight: 350,
                 focus: true,
             });
         });
-
+        $('#summernote').summernote('fullscreen.toggle');
+        $('#summernote').summernote('fontName', 'Arial');
     </script>
 </body>
 
