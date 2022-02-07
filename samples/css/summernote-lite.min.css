@@ -4,7 +4,7 @@
     --background-control: #E5D79E;
     --text: #000;
     --border: #453C10;
-    --accent: hsl(#D1B530);
+    --accent: hsl(50,64,50);
     --accent-50alpha: #D1B53080;
     --accent-25alpha: #D1B53040;
     --accent-75alpha: #D1B530C0;
@@ -280,7 +280,7 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   color: #000;
-  font-family: summernote;
+  font-family: Arial;
   border-radius: 4px;
 }
 .note-toolbar {
@@ -460,7 +460,7 @@ button.close {
   z-index: 1000;
   float: left;
   text-align: left;
-  background: var(--accent);
+  background-color: var(--background-control);
   border: 1px solid var(--border);
   padding: 5px;
   background-clip: padding-box;
